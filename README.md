@@ -19,7 +19,7 @@ Insurance Bot is a Python web application that allows users to upload PDF docume
 ### Steps
 1. Clone the repository:
    ```bash
-   git clone https://github.com/Ameera-Sherin/try-outs.git
+   git clone https://github.com/Ameera-Sherin/insurance_bot.git
    ```
 
 2. Navigate to the project directory:
