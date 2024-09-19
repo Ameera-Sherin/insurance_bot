@@ -24,7 +24,7 @@ Insurance Bot is a Python web application that allows users to upload PDF docume
 
 2. Navigate to the project directory:
    ```bash
-   cd pdf-summarizer
+   cd insurance_bot
    ```
 
 3. Create a virtual environment (optional but recommended):
