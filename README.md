@@ -1,12 +1,14 @@
-# PDF Summarizer
+# Insurance Bot
 
 ## Description
-PDF Summarizer is a Python web application that allows users to upload PDF documents and receive concise summaries of their content. The application utilizes Optical Character Recognition (OCR) to extract text from image-based PDFs and employs OpenAI's GPT model to generate structured summaries.
+Insurance Bot is a Python web application that allows users to upload PDF documents, specifically insurance policy PDFs, and receive concise summaries of their content. The application utilizes Optical Character Recognition (OCR) to extract text from image-based PDFs and employs OpenAI's GPT model to generate structured summaries. It also finds rules from insurance policies and compares claim forms with the relevant rules.
 
 ## Features
-- Upload PDF files for summarization.
+- Upload insurance policy PDF files for summarization and rule extraction.
 - Support for both text-based and image-based PDFs.
 - Generate well-structured summaries with key information extracted from the documents.
+- Compare claim forms against extracted rules based on the insurance policy.
+
 
 ## Installation
 

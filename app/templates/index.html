@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Summarizer</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body class="index_body">
+    <div class="index_container">
+        <h1 class="index_h1">Insurance Summarizer</h1>
+
+        <!-- Form for Upload Policy -->
+        <form id="policy-form" action="/upload" method="post" enctype="multipart/form-data">
+            <label for="file">Claim Review</label>
+            <div class="form-group">
+                <input type="file" id="file" name="file" accept=".pdf" required>
+                <select id="insurance-type" name="insurance_type" required>
+                    <option value="" disabled selected>Select Insurance Type</option>
+                    {% for type in insurance_types %}
+                        <option value="{{ type }}">{{ type }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+
+        <!-- Hidden Form for Compare Claim -->
+        <form id="claim-form" class="hidden" action="/rule_gen" method="post" enctype="multipart/form-data">
+            <label for="file">Upload Insurance Policies:</label>
+            <div class="form-group">
+                <input type="file" id="file" name="file" accept=".pdf" required>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+        <button id="toggle-button">Upload Policy</button> 
+        {{ edit_1 }}
+    </div>
+    <script src="/static/js/script.js"></script>
+</body>
+</html>
