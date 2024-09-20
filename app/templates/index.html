@@ -14,8 +14,19 @@
 <body class="index_body">
     <div class="index_container">
         <h1 class="index_h1">Insurance Summarizer</h1>
+        <form id="policy-form" action="/compare" method="post" enctype="multipart/form-data">
+        <label for="claim_file">Claim Form</label>
+        <div class="form-group">
+            <input type="file" id="claim_file" name="claim_file" accept=".pdf" required>  <!-- Updated name -->
+        </div>
+        <label for="policy_file">Policy Doc</label>
+        <div class="form-group">
+            <input type="file" id="policy_file" name="policy_file" accept=".pdf" required>  <!-- Updated name -->
+        </div>
+        <button type="submit">Start</button>
+        </form>
 
-        <!-- Form for Upload Policy -->
+        <!-- Form for Upload Policy
         <form id="policy-form" action="/upload" method="post" enctype="multipart/form-data">
             <label for="file">Claim Review</label>
             <div class="form-group">
@@ -30,7 +41,7 @@
             <button type="submit">Submit</button>
         </form>
 
-        <!-- Hidden Form for Compare Claim -->
+        Hidden Form for Compare Claim
         <form id="claim-form" class="hidden" action="/rule_gen" method="post" enctype="multipart/form-data">
             <label for="file">Upload Insurance Policies:</label>
             <div class="form-group">
@@ -41,6 +52,6 @@
         <button id="toggle-button">Upload Policy</button> 
         {{ edit_1 }}
     </div>
-    <script src="/static/js/script.js"></script>
+    <script src="/static/js/script.js"></script> -->
 </body>
 </html>

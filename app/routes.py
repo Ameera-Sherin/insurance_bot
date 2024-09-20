@@ -1,6 +1,6 @@
 import os
 from flask import Blueprint, request, jsonify, render_template
-from .utils import is_image_pdf, extract_text_with_ocr, extract_text_from_pdf, compare_claim_with_rules, generate_rule_set_from_pdf
+from .utils import is_image_pdf, extract_text_with_ocr, extract_text_from_pdf, compare_claim_with_rules, generate_rule_set_from_pdf, compare_claim_with_policy
 from app.models import insurance_rules
 
 main = Blueprint('main', __name__)
@@ -42,3 +42,29 @@ def generate_rule_set():
         else:
             return "Uploaded file is empty", 400
     return "No file uploaded", 400
+
+@main.route('/compare', methods=['POST'])
+def claim_policy_review():
+    claim_file = request.files.get('claim_file')  # Get the uploaded file
+    policy_file = request.files.get('policy_file')  # Get the uploaded file
+    
+    # Check if both files are uploaded
+    if not claim_file or not policy_file:
+        return "No file uploaded", 400
+
+    # Check if the claim file is empty
+    if claim_file.filename == '':
+        return "No selected claim file", 400
+
+    # Check if the policy file is empty
+    if policy_file.filename == '':
+        return "No selected policy file", 400
+
+    # Check if the files are readable
+    if claim_file.readable() and policy_file.readable():
+        claim_file.seek(0)  # Reset file pointer to the beginning
+        policy_file.seek(0)  # Reset file pointer to the beginning
+        summary = compare_claim_with_policy(claim_form=claim_file, policy_doc=policy_file)  # Pass the file objects
+        return render_template('result.html', summary=summary)
+    else:
+        return "Uploaded file is empty", 400
